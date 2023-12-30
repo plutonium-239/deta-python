@@ -154,6 +154,6 @@ class _Service:
                 res = self.client.getresponse()
                 return res
 
-            except http.client.RemoteDisconnected:
+            except (http.client.RemoteDisconnected, http.client.CannotSendRequest):
                 reinitializeConnection = True
                 retry -= 1
